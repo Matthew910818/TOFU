@@ -9,6 +9,30 @@ This repository does not assume any user-specific local path. Replace placeholde
 - Prophesee / Metavision runtime installed if you are using the live event camera pipeline
 - Network access to the robot / gripper controller if you are using the UDP synchronization flow
 
+## Conda environment setup
+
+Create and activate a new conda environment:
+
+```bash
+conda create -n tofu python=3.9
+conda activate tofu
+```
+
+Install the project dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+If you need the CUDA-enabled PyTorch build, install PyTorch from the official index first, then install the remaining dependencies:
+
+```bash
+pip install torch==2.8.0+cu128 torchvision==0.23.0+cu128 torchaudio==2.8.0+cu128 --index-url https://download.pytorch.org/whl/cu128
+pip install -r requirements.txt
+```
+
+If your machine does not use CUDA, replace the PyTorch packages with a CPU build that matches your platform.
+
 ## Recommended file layout
 
 Keep the calibration file inside this repository, for example:
